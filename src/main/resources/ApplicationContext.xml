@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd ">
+
+	<bean id="apple" class="class02.Apple" init-method="init" destroy-method="destroy">
+		<property name="color" value="红色"></property>
+	</bean>
+	<bean id="banana" class="class02.Banana" />
+	
+	
+	<bean id="student" class="class02.Student">
+		<property name="name" value="张三"></property>
+		<property name="age" value="28"></property>
+		<property name="depart">
+		<!--内联bean:该bean没有id,且在property标签内，所以只能被本属性使用-->
+			<bean class="class02.Depart">
+				<property name="name" value="java研发部"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<util:list id="nameList">
+		<value>张三</value>
+		<value>李四</value>
+		<value>王五</value>
+		<value>赵六</value>
+	</util:list>
+	
+	
+	
+</beans>
